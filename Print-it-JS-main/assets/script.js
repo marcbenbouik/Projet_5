@@ -52,6 +52,7 @@ for (let i = 0; i < slides.length; i++) {
 
 	const div = document.createElement("div");
 	div.className = "dot";
+	div.setAttribute('id',i);
 
 	const divDots = document.querySelector(".dots");
 	divDots.appendChild(div);
@@ -61,7 +62,7 @@ const div = document.querySelector(".dot");
 const arrowLeft = document.querySelector(".arrow_left");
 
 arrowLeft.onclick = function () { 
-	div.classList.add("dot_selected"); 
+	
 	p--;
 };
 
@@ -76,37 +77,40 @@ function increment() {
 const ban = document.getElementById("banner");
 ban.onclick = increment();
 console.log(a);
-
-
-
-
-// Select total count
-
-// Variable to track count
 var count = 0;
+let dot_selected = document.getElementById(count);
+dot_selected.classList.add("dot_selected");
 
-// Display initial count value
 
 
-// Function to increment count
 const handleIncrement = () => {
+	let dot_unselected  = document.getElementById(count);
 	count++;
 	if(count > 3) {
 		count = 0;
+		dot_unselected = document.getElementById("3");
 	  }
   console.log(count);
   imagePhoto.src = slides[count].image;
+  dot_selected = document.getElementById(count);
+  dot_selected.classList.add("dot_selected");
+  dot_unselected.classList.remove("dot_selected");
 };
 
 // Function to decrement count
 const handleDecrement = () => {
+	let dot_unselected  = document.getElementById(count);
 	count--;
 	if(count < 0){
 		count = 3;
+		dot_unselected = document.getElementById("0");
 	  };
 	
   p = count;
   imagePhoto.src = slides[p].image;
+  const dot_selected = document.getElementById(count);
+  dot_selected.classList.add("dot_selected");
+  dot_unselected.classList.remove("dot_selected");
   console.log(count);
 };
 
