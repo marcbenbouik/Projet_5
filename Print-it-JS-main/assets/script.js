@@ -48,6 +48,8 @@ let p =0;
 	};
 
 
+// ajout des div dots
+
 for (let i = 0; i < slides.length; i++) {
 
 	const div = document.createElement("div");
@@ -61,28 +63,30 @@ for (let i = 0; i < slides.length; i++) {
 const div = document.querySelector(".dot");
 const arrowLeft = document.querySelector(".arrow_left");
 
-arrowLeft.onclick = function () { 
+// arrowLeft.onclick = function () { 
 	
-	p--;
-};
+// 	p--;
+// };
 
 
-console.log(p);
+// console.log(p);
 
 
-let a=0;
-function increment() {
-	a++;
-}
-const ban = document.getElementById("banner");
-ban.onclick = increment();
-console.log(a);
+// let a=0;
+// function increment() {
+// 	a++;
+// }
+// const ban = document.getElementById("banner");
+// ban.onclick = increment();
+// console.log(a);
+
+
 var count = 0;
 let dot_selected = document.getElementById(count);
 dot_selected.classList.add("dot_selected");
 
 
-
+// slidedroite
 const handleIncrement = () => {
 	let dot_unselected  = document.getElementById(count);
 	count++;
@@ -92,12 +96,13 @@ const handleIncrement = () => {
 	  }
   console.log(count);
   imagePhoto.src = slides[count].image;
+  textPhoto.innerHTML = slides[count].tagLine;
   dot_selected = document.getElementById(count);
   dot_selected.classList.add("dot_selected");
   dot_unselected.classList.remove("dot_selected");
 };
 
-// Function to decrement count
+// slide gauche
 const handleDecrement = () => {
 	let dot_unselected  = document.getElementById(count);
 	count--;
@@ -108,13 +113,14 @@ const handleDecrement = () => {
 	
   p = count;
   imagePhoto.src = slides[p].image;
+  textPhoto.innerHTML = slides[count].tagLine;
   const dot_selected = document.getElementById(count);
   dot_selected.classList.add("dot_selected");
   dot_unselected.classList.remove("dot_selected");
   console.log(count);
 };
 
-// Add click event to buttons
+// evenement au clique
 arrowRight.addEventListener("click", handleIncrement);
 arrowLeft.addEventListener("click", handleDecrement);
 
