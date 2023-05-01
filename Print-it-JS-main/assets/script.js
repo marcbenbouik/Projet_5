@@ -46,6 +46,7 @@ for (let i = 0; i < slides.length; i++) {
 	divDots.appendChild(div);
 }
 
+// selection des points et declaration de variable
 const div = document.querySelector(".dot");
 let dot_selected = document.getElementById(count);
 dot_selected.classList.add("dot_selected");
@@ -77,7 +78,7 @@ const arrowDecrement = () => {
 	count--;
 	if (count < 0) {
 		count = finCarrousel;
-		dot_unselected = document.getElementById(finCarrousel);
+		dot_unselected = document.getElementById('0');
 	};
 	// affichage de la photo et du texte
 	imagePhoto.src = slides[count].image;
