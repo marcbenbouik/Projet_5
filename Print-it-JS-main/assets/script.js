@@ -19,7 +19,7 @@ const slides = [
 
 // declaration variables
 	var count = 0;
-	// slection de la div
+	// selection de la div
 	const divBanner = document.getElementById("banner");
 	// creation de balises
 	const imagePhoto = document.createElement("img");
@@ -39,6 +39,7 @@ function setSlide () {
 
 setSlide ();
 imagePhoto.classList.add("banner-img");
+imagePhoto.alt = "Banner Print-it";
 
 // liaison a la balise
 divBanner.appendChild(imagePhoto);
@@ -56,12 +57,12 @@ for (let i = 0; i < slides.length; i++) {
 	divDots.appendChild(div);
 }
 
-// slection de spoints
+// selection des points
 let dot_selected = document.getElementById(count);
 let dot_unselected = document.getElementById(finCarrousel);
 
 // fonction de mise en forme des points
-function setDots(){
+function setDots () {
 	dot_selected = document.getElementById(count);
 	dot_selected.classList.add("dot_selected");
 	dot_unselected.classList.remove("dot_selected");
@@ -69,7 +70,7 @@ function setDots(){
 setDots();
 
 // slidedroite
-const arrowIncrement = () => {
+function arrowIncrement () {
 	dot_unselected = document.getElementById(count);
 	count++;
 	if (count > finCarrousel) {
@@ -78,14 +79,12 @@ const arrowIncrement = () => {
 	}
 	// affichage de la photo et du texte
 	setSlide ();
-
 	// selection du point et deselection du precedent
 	setDots ();
-	
 };
 
 // slide gauche
-const arrowDecrement = () => {
+function arrowDecrement () {
 	dot_unselected = document.getElementById(count);
 	count--;
 	if (count < 0) {
@@ -94,10 +93,8 @@ const arrowDecrement = () => {
 	};
 	// affichage de la photo et du texte
 	setSlide ();
-
 	// selection du point et deselection du precedent
 	setDots ();
-	
 };
 
 // evenement au clique
